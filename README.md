@@ -6,13 +6,13 @@ DevCraft is a modular, agent-agnostic collection of reusable skills for structur
 
 ## Install in a project
 
-From your project directory, install the full collection with the [Skills CLI](https://github.com/vercel-labs/skills):
+From your project directory, start the [Skills CLI](https://github.com/vercel-labs/skills) installer:
 
 ```sh
-npx skills@latest add louis-salvosa0101/devcraft --skill '*' --agent codex --copy --yes
+npx skills@latest add louis-salvosa0101/devcraft
 ```
 
-Replace `codex` with `claude-code` or `cursor` for those hosts. To inspect the skills before installing, run `npx skills@latest add louis-salvosa0101/devcraft --list`. The CLI can install individual skills with `--skill <name>`; `setup-devcraft` and the relevant workflow and specialist skills must be available for the chosen route. A local CLI probe confirms it discovers the nested skill directories and copies their workflow metadata. Run `setup-devcraft` explicitly after installation to configure the project.
+Choose your agent and the skills to install when prompted; select all 23 for the complete DevCraft workflow. To inspect the collection first, run `npx skills@latest add louis-salvosa0101/devcraft --list`. Run `setup-devcraft` explicitly after installation to configure the project.
 
 ### Python adapter alternative
 
