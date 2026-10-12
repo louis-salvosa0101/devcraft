@@ -4,6 +4,6 @@ DevCraft's source skills live under `skills/user-invoked/` and `skills/model-inv
 
 The approved contracts are in `docs/architecture.md`. `docs/research/source-audit.md` and `docs/research/provenance.md` own upstream findings and attribution. Each skill must keep its responsibility, activation, inputs, output, completion, handoff, skip, conflict, and source attribution clear without duplicating full instructions elsewhere.
 
-Keep core skill procedures provider-neutral. Workflow-only frontmatter and Codex `agents/openai.yaml` sidecars live beside source skills so both `npx skills` and the Python adapter preserve invocation controls. Do not add a dependency on an external agent runtime or issue tracker. The first-release ticket store is local Markdown in `docs/tickets/` of an adopting project.
+Keep core skill procedures provider-neutral. Workflow-only frontmatter and Codex `agents/openai.yaml` sidecars live beside source skills so both `npx skills` and the Python adapter preserve invocation controls. Do not require an external agent runtime or issue tracker. `setup-devcraft` asks adopting projects to choose local Markdown in `docs/tickets/` or GitHub Issues.
 
 Run `python -m unittest discover -s tests -v` after changing skills, templates, or the installer. Record manual scenario or host tests in `docs/validation.md` with actual evidence and untested limits.

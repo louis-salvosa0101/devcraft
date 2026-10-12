@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Activation: the developer requests a workflow recommendation. Return advice; never start the recommended stage.
 
-Inspect `AGENTS.md`, applicable approved documents, ticket statuses and blockers, code state, and the current request. Read a candidate skill's `SKILL.md` before claiming what it does. Recommend one next user-invoked skill with its needed input and approval gate; mention a short alternative only if the situation genuinely branches.
+Inspect `AGENTS.md` and/or `CLAUDE.md`, the configured ticket backend, applicable approved documents, ticket statuses and blockers, code state, and the current request. For GitHub Issues, use read-only `gh issue list/view` against the configured repository; report unavailable access as a gap. Read a candidate skill's `SKILL.md` before claiming what it does. Recommend one next user-invoked skill with its needed input and approval gate; mention a short alternative only if the situation genuinely branches.
 
 Routing cues: absent setup → `setup-devcraft`; unresolved product decisions → `grill-with-docs`; settled requirements without a product spec → `product-spec`; UI needing a direction → `design-direction`; architecture/API decisions → `technical-design`; approved multi-session work → `to-tickets`; ready ticket or small direct change → `implement`; built UI needing evaluation → `ui-review`; candidate release → `release`. A hard bug may instead start with `diagnosing-bugs`. Existing approved work is reused, not repeated for ceremony.
 

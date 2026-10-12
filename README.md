@@ -25,7 +25,7 @@ python adapters/install.py --agent codex --project /path/to/project --check
 
 Use `--agent claude-code` or `--agent cursor` for those hosts. On Windows, pass a quoted absolute path to `--project`. The installer copies 23 skills into that agent's project discovery directory, asks the host to keep the ten workflow skills explicit-only, refuses unrelated or edited skill files, and can repair missing DevCraft files. It does not change project specifications, tickets, or `AGENTS.md`. See [adapter details](adapters/README.md) for paths, metadata, manual installation, and compatibility limits.
 
-After either installation method, invoke `setup-devcraft` explicitly in your agent. It verifies discovery and configures a short DevCraft block in the project's `AGENTS.md`, including the **local Markdown issue tracker** at `docs/tickets/<feature-slug>/T-001-<ticket-slug>.md`. It preserves existing project instructions and tickets. The directory appears with the first real ticket.
+After either installation method, invoke `setup-devcraft` explicitly in your agent. It asks which project instruction file(s) to configure and whether tickets should use local Markdown under `docs/tickets/` or GitHub Issues. It preserves existing project instructions and tickets.
 
 Then invoke `ask-workflow` for a recommendation or name a stage directly. An example standard route is:
 
@@ -43,10 +43,10 @@ These are separate invocations. Backend-only work can skip visual stages; a smal
 | `docs/product.md` | Users, scope, requirements, acceptance outcomes |
 | `docs/design.md` | Visual system, interaction, responsive and accessibility direction |
 | `docs/tech-spec.md` | Architecture, data/API contracts, security boundaries, test strategy |
-| `docs/tickets/<feature>/T-###-<slug>.md` | One vertical slice, blockers, criteria, status and verification |
-| `AGENTS.md` | Project conventions, document paths, commands and stage guidance |
+| Local ticket or GitHub Issue | One vertical slice, blockers, criteria, status and verification |
+| `AGENTS.md` and/or `CLAUDE.md` | Project conventions, document paths, commands and stage guidance |
 
-Start from [the four templates](templates/) when useful. Specs and ticket breakdowns need developer approval. An `implement` invocation works on one ready ticket by default and never silently commits, pushes, or deploys. Specialists cannot advance a major stage or rewrite an approved specification. See [architecture](docs/architecture.md) for contracts and conflict handling.
+Start from [the four templates](templates/) when useful. `setup-devcraft` asks which instruction file(s) to configure and whether to use local Markdown or GitHub Issues. GitHub mode requires authenticated `gh` access. Specs and ticket breakdowns need developer approval. An `implement` invocation works on one ready ticket by default and never silently commits, pushes, or deploys. Specialists cannot advance a major stage or rewrite an approved specification. See [architecture](docs/architecture.md) for contracts and conflict handling.
 
 ## Source and validation
 
