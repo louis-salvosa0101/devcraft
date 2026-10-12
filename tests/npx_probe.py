@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     agent = sys.argv[1] if len(sys.argv) > 1 else "codex"
+    source = sys.argv[2] if len(sys.argv) > 2 else str(ROOT)
     if agent not in {"codex", "claude-code", "cursor"}:
         print("agent must be codex, claude-code, or cursor", file=sys.stderr)
         return 2
@@ -22,7 +23,7 @@ def main() -> int:
     with TemporaryDirectory() as directory:
         project = Path(directory)
         command = [
-            npx, "--yes", "skills@latest", "add", str(ROOT), "--skill", "*",
+            npx, "--yes", "skills@latest", "add", source, "--skill", "*",
             "--agent", agent, "--copy", "--yes",
         ]
         result = subprocess.run(command, cwd=project, capture_output=True, text=True,

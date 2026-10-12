@@ -12,6 +12,8 @@ Codex's optional `skill-creator/scripts/quick_validate.py` was attempted on `set
 
 `npx --yes skills@latest add . --list` discovered all 23 skills in the nested source layout. `python -u tests/npx_probe.py codex`, `claude-code`, and `cursor` each used the current Skills CLI in a temporary project with `--skill '*' --copy --yes`: all three installed 23 `SKILL.md` files and preserved `setup-devcraft`'s user-only frontmatter and Codex sidecar. This validates the CLI packaging locally, not a GitHub download or host enforcement.
 
+After publishing the public GitHub repository, `npx --yes skills@latest add louis-salvosa0101/devcraft --list` discovered all 23 remote skills. `python -u tests/npx_probe.py codex louis-salvosa0101/devcraft` installed all 23 into a temporary Codex project and preserved `setup-devcraft`'s invocation metadata. This verifies the documented GitHub install source; it does not test live Claude Code or Cursor routing.
+
 ## Scenario walkthroughs
 
 | Scenario | Written contract exercised | Observed walkthrough result |
